@@ -1,0 +1,148 @@
+//buildscript {
+//    repositories {
+//        jcenter()
+//    }
+//
+//    dependencies {
+//        classpath 'com.github.promeg:android-multi-channel-plugin:0.1'
+//    }
+//}
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.meituan.android.walle:plugin:1.1.3'
+    }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+//apply plugin: 'packer'//采用写入apk的comment方式
+apply plugin: 'walle'
+//apply plugin: 'android-multi-channel'//采用写入apk的asset/channelInfo
+
+//packer {
+//    checkSigningConfig = true
+//    checkZipAlign = true
+//    archiveNameFormat = '${appPkg}-${flavorName}-${buildType}-v${versionName}-${versionCode}-${fileMD5}'
+//    archiveOutput = file(new File(project.rootProject.buildDir.path, "myapks"))
+//}
+
+walle {
+    apkOutputFolder = new File("${project.buildDir}/outputs/channels")
+    apkFileNameFormat = '${appName}-${packageName}-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}-${flavorName}.apk'
+    //configFile与channelFile两者必须存在一个，否则无法生成渠道包。两者都存在时优先执行configFile
+//    channelFile = new File("${project.getProjectDir()}/channel")
+    configFile = new File("${project.getProjectDir()}/config.json")
+}
+
+//multiFlavors{
+//    prefix = "A_";
+//    subfix = "_B";
+//    defaultSigningConfig = android.signingConfigs.debug
+//    channelConfig {
+//        inside {
+//            // override default signing config
+//            signingConfig = android.signingConfigs.debug
+//            childFlavors = ["c1", "c2"]
+//        }
+//
+//        outside {
+//            // using default signing config
+//            childFlavors = ["cc1", "cc2"]
+//        }
+//
+//        notexist {
+//            childFlavors = ["ccc1", "ccc2"]
+//        }
+//    }
+//}
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+    defaultConfig {
+        applicationId "com.sherchen.wanjiedemo"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'xfgc_meixi_debug.keystore'
+            keyPassword 'meixiwelcomeyou20160919'
+            storeFile file('xfgc_meixi_debug.keystore')
+            storePassword 'meixiwelcomeyou20160919'
+            v2SigningEnabled true
+        }
+        debug {
+            keyAlias 'xfgc_meixi_debug.keystore'
+            keyPassword 'meixiwelcomeyou20160919'
+            storeFile file('xfgc_meixi_debug.keystore')
+            storePassword 'meixiwelcomeyou20160919'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+//    productFlavors{
+//        inside{}
+//        outside{}
+//    }
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'it.sephiroth.android.library.horizontallistview:hlistview:1.2.2'
+    compile project(':ThirdParty:Android-ObservableScrollView:library')
+    compile project(':ThirdParty:AndroidCommons:androidcommon')
+    compile project(':mvp')
+    compile project(':ThirdParty:BaseRecyclerViewAdapterHelper:library')
+    compile project(':ThirdParty:Blurry:blurry')
+    compile project(':ThirdParty:recyclerview-animators:animators')
+    compile project(':ThirdParty:Transitions-Everywhere:library')
+    compile project(':ThirdParty:sticky-headers-recyclerview:library')
+    compile project(':ThirdParty:transferee:Transferee')
+    compile project(':ThirdParty:transferee:GlideLoader')
+    compile project(':ThirdParty:StickerCamera:Gpu-Image')
+    compile project(':ThirdParty:StickerCamera:ImageViewTouch')
+    compile project(':ThirdParty:CameraKit-Android:camerakit')
+    compile 'com.jakewharton:butterknife:8.6.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.darwinsys:hirondelle-date4j:1.5.1'
+    //    annotationProcessor 'com.github.bumptech.glide:compiler:3.7.0'
+    testCompile 'junit:junit:4.12'
+    compile files('libs/MCPTool-1.1.jar')
+    compile 'com.mcxiaoke.gradle:packer-helper:1.0.9'
+//    compile 'com.github.promeg:android-multi-channel-plugin-lib:0.1'
+    compile 'com.meituan.android.walle:library:1.1.3'
+}

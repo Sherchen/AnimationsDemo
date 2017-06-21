@@ -1,0 +1,33 @@
+[submodule "ThirdParty/AndroidCommons"]
+	path = ThirdParty/AndroidCommons
+	url = https://github.com/Sherchen/AndroidCommons.git
+[submodule "ThirdParty/ArchitectureTemplate"]
+	path = ThirdParty/ArchitectureTemplate
+	url = https://github.com/Sherchen/ArchitectureTemplate.git
+[submodule "ThirdParty/BaseRecyclerViewAdapterHelper"]
+	path = ThirdParty/BaseRecyclerViewAdapterHelper
+	url = https://github.com/CymChad/BaseRecyclerViewAdapterHelper.git
+[submodule "ThirdParty/Android-ObservableScrollView"]
+	path = ThirdParty/Android-ObservableScrollView
+	url = https://github.com/ksoichiro/Android-ObservableScrollView.git
+[submodule "ThirdParty/recyclerview-animators"]
+	path = ThirdParty/recyclerview-animators
+	url = https://github.com/wasabeef/recyclerview-animators.git
+[submodule "ThirdParty/Blurry"]
+	path = ThirdParty/Blurry
+	url = https://github.com/wasabeef/Blurry.git
+[submodule "ThirdParty/Transitions-Everywhere"]
+	path = ThirdParty/Transitions-Everywhere
+	url = https://github.com/Sherchen/Transitions-Everywhere.git
+[submodule "ThirdParty/transferee"]
+	path = ThirdParty/transferee
+	url = https://github.com/Sherchen/transferee.git
+[submodule "ThirdParty/sticky-headers-recyclerview"]
+	path = ThirdParty/sticky-headers-recyclerview
+	url = https://github.com/timehop/sticky-headers-recyclerview.git
+[submodule "ThirdParty/StickerCamera"]
+	path = ThirdParty/StickerCamera
+	url = https://github.com/Skykai521/StickerCamera.git
+[submodule "ThirdParty/CameraKit-Android"]
+	path = ThirdParty/CameraKit-Android
+	url = https://github.com/gogopop/CameraKit-Android.git

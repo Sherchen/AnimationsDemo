@@ -1,0 +1,25 @@
+include ':app'
+include ':ThirdParty:Android-ObservableScrollView:library'
+include ':ThirdParty:AndroidCommons:androidcommon'
+include ':ThirdParty:BaseRecyclerViewAdapterHelper:library'
+include ':ThirdParty:Blurry:blurry'
+include ':ThirdParty:recyclerview-animators:animators'
+include ':ThirdParty:Transitions-Everywhere:library'
+include ':ThirdParty:sticky-headers-recyclerview:library'
+include ':ThirdParty:transferee:Transferee'
+include ':ThirdParty:transferee:GlideLoader'
+
+include ':ThirdParty:StickerCamera:Gpu-Image'
+include ':ThirdParty:StickerCamera:ImageViewTouch'
+
+include ':ThirdParty:CameraKit-Android:camerakit'
+
+include ':mvp'
+project(':mvp').projectDir = new File("ThirdParty/ArchitectureTemplate/mvp")
+include ':mvp-common'
+project(':mvp-common').projectDir = new File("ThirdParty/ArchitectureTemplate/mvp-common")
+include ':presentermanager'
+project(':presentermanager').projectDir = new File("ThirdParty/ArchitectureTemplate/presentermanager")
+include ':utils-fragment'
+project(':utils-fragment').projectDir = new File("ThirdParty/ArchitectureTemplate/utils-fragment")
+
