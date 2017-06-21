@@ -1,5 +1,7 @@
 ## Gif demo
+![image](https://github.com/Sherchen/AnimationsDemo/blob/master/ezgif-3-18309fe7e5.gif)
 
+![image](https://github.com/Sherchen/AnimationsDemo/blob/master/ezgif-3-756e27f448.gif)
 
 ## Transition Animation
 if api >  21, use activity transition animation, otherwise use Transitions-Everywhere
